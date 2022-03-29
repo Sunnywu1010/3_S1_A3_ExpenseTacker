@@ -1,7 +1,7 @@
 const bcrypt = require("bcryptjs");
 
 const User = require("../users");
-const Records = require("../records");
+const Record = require("../records");
 const Category = require("../categories");
 
 const db = require("../../config/mongoose");

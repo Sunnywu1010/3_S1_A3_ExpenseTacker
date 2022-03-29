@@ -1,6 +1,6 @@
 const Category = require("../categories");
 const db = require("../../config/mongoose");
-const categoryList = require("../seeds/category.json").results;
+const categoryList = require("./category.json").results;
 db.once("open", () => {
   Promise.all(
     Array.from(categoryList, (category) => {
