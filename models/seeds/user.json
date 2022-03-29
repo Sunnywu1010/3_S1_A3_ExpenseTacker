@@ -1,0 +1,20 @@
+{
+  "results": [
+    {
+      "id": 1,
+      "name": "John",
+      "email": "john@john.john",
+      "password":12345678
+      
+    },
+    {
+      "id": 2,
+      "name": "Ben",
+      "email": "ben@ben.ben",
+      "password":12345678
+
+    }
+
+   
+  ]
+}

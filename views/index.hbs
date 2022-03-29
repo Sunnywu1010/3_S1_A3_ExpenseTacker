@@ -1,1 +1,55 @@
-<h1>hi</h1>
+<div class="container mt-4">
+  <div class="input-group input-group-lg justify-content-center">
+    <form action="/category">
+      <select
+        class="container"
+        name="category"
+        id="category-selector"
+        onchange="submit()"
+      >
+        <option>Category</option>
+        <option value=""></option>
+        <option value=""></option>
+        <option value=""></option>
+        <option value=""></option>
+      </select>
+    </form>
+  </div>
+</div>
+
+<div class="container">
+  <h2>Total Amount</h2>
+  <h1 class="text-end" style="color:#fd7e14;">100</h1>
+</div>
+<div class="container">
+
+  <ul class="list-group">
+    {{#each trackers}}
+      <li class="list-group-item">
+        <div class="d-flex align-items-center justify-content-around">
+
+          <i class="fa-solid fa-utensils"></i>
+          <div>
+          <h4 class="align-middle">
+            {{this.name}}
+          </h4>
+          <p>{{this.date}}</p>
+          </div>
+          <h4>{{this.amount}}</h4>
+          <a class="btn btn-success" href="/trackers/{{this._id}}/edit">edit</a>
+          <form
+            class="m-0"
+            action="./trackers/{{this._id}}?_method=DELETE"
+            method="POST"
+            style="display: inline"
+          >
+            <button class="btn btn-danger" type="submit">delete</button>
+          </form>
+
+        </div>
+      </li>
+    {{/each}}
+  </ul>
+</div>
+
+<a href="/tracker/new" class="btn btn-primary mb-3">Create</a>

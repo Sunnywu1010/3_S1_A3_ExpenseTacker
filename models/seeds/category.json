@@ -1,0 +1,30 @@
+{
+  "results": [
+    {
+      "id": 1,
+      "name": "Food",
+      "icon": "fa-solid fa-utensils"
+    },
+  
+    {
+      "id": 2,
+      "name": "Transportation",
+      "icon": "fa-solid fa-bus-simple"
+    },
+    {
+      "id": 3,
+      "name": "Entertainment",
+      "icon": "fa-solid fa-bag-shopping"
+    },
+    {
+      "id": 4,
+      "name": "Hospital",
+      "icon": "fa-solid fa-briefcase-medical"
+    },
+    {
+      "id": 5,
+      "name": "Others",
+      "icon": "fa-solid fa-tags"
+    }
+  ]
+}
