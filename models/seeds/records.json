@@ -5,42 +5,49 @@
       "date":"10/10/2022",
       "amount":100,
       "userId":1,
-      "categoryId":1
+      "categoryId":1,
+      "categoryIcon":"fa-solid fa-utensils"
+      
     },
     {
       "name": "Movie",
       "date": "10/10/2022",
       "amount": 100,
       "userId": 1,
-      "categoryId": 3
+      "categoryId": 3,
+      "categoryIcon":"fa-solid fa-face-grin-beam"
     },
     {
       "name": "Uber",
       "date": "10/10/2022",
       "amount": 100,
       "userId": 1,
-      "categoryId": 2
+      "categoryId": 2,
+      "categoryIcon":"fa-solid fa-van-shuttle"
     },
     {
       "name": "Medicine",
       "date": "10/10/2022",
       "amount": 100,
       "userId": 2,
-      "categoryId": 4
+      "categoryId": 4,
+      "categoryIcon":"fa-solid fa-house"
     },
     {
       "name": "Dinner",
       "date": "10/10/2022",
       "amount": 100,
       "userId": 2,
-      "categoryId": 1
+      "categoryId": 1,
+      "categoryIcon":"fa-solid fa-utensils"
     },
     {
       "name": "Bus",
       "date": "10/10/2022",
       "amount": 100,
       "userId": 2,
-      "categoryId": 2
+      "categoryId": 2,
+      "categoryIcon":"fa-solid fa-van-shuttle"
     }
   ]
 }

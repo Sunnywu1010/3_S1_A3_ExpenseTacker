@@ -1,16 +1,28 @@
 const express = require("express");
 const router = express.Router();
 
-const expenseTracker = require("../../models/expenseTracker");
+const Records = require("../../models/records");
+const Categories = require("../../models/categories");
 router.get("/", (req, res) => {
-  expenseTracker
-    .find()
+  Records.find()
     .lean()
-    .then((trackers) => {
-      res.render("index", { trackers });
+    .then((records) => {
+      // modify mongoose time into Node.js
+      records.forEach((record) => {
+        const date = record.date.toLocaleDateString(["ban", "id"]);
+        record.date=date
+      });
+      Categories.find()
+        .lean()
+        .then((categories) => {
+          // const date=categories.date.toDateString()
+
+          // console.log(date)
+          res.render("index", { records, categories });
+        });
     })
     .catch((error) => {
       console.log(error);
     });
 });
-module.exports=router
+module.exports = router;

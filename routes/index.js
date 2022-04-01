@@ -3,9 +3,9 @@ const express = require("express");
 const router = express.Router();
 // Include Packages
 const home = require("./modules/home");
-const trackers = require("./modules/trackers");
+const records = require("./modules/records");
 // route setting
 router.use("/", home);
-router.use("/trackers", trackers);
+router.use("/records", records);
 // export
 module.exports = router;

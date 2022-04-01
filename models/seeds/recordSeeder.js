@@ -18,6 +18,7 @@ db.once("open", () => {
         .then((salt) => bcrypt.hash(user.password.toString(), salt))
         .then((hash) =>
           User.create({
+            id: user.id,
             name: user.name,
             email: user.email,
             password: hash,
@@ -56,6 +57,7 @@ db.once("open", () => {
                   // then take out that one's _id, as userId and categoryId
                   const userId = user._id;
                   const categoryId = category._id;
+                  const categoryIcon = category.icon;
                   return Record.create({
                     name: record.name,
                     date: record.date,
@@ -63,6 +65,7 @@ db.once("open", () => {
                     // put userId and categoryId into Record Model
                     userId: userId,
                     categoryId: categoryId,
+                    categoryIcon: categoryIcon,
                   });
                 });
             })

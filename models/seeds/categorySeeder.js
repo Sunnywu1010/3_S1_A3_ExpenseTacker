@@ -5,6 +5,7 @@ db.once("open", () => {
   Promise.all(
     Array.from(categoryList, (category) => {
       return Category.create({
+        id: category.id,
         name: category.name,
         icon: category.icon,
       });
