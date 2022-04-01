@@ -8,8 +8,8 @@ router.get("/", (req, res) => {
   Records.find()
     .lean()
     .then((records) => {
-      // modify mongoose time into Node.js
       records.forEach((record) => {
+        // modify mongoose time into Node.js
         const date = record.date.toLocaleDateString(["ban", "id"]);
         record.date=date
         totalAmount+=record.amount;
