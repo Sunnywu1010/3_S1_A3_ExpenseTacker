@@ -9,37 +9,40 @@
         onchange="submit()"
       >
         <option>Category</option>
-        <option class="input-group-list" value="">1</option>
-        <option class="input-group-list" value="">2</option>
-        <option class="input-group-list" value="">3</option>
-        <option class="input-group-list" value="">4</option>
+        {{#each categories}}
+          <option
+            class="input-group-list"
+            value="{{this.name}}"
+          >{{this.name}}</option>
+        {{/each}}
+
       </select>
     </form>
   </div>
 
   <h2>Total Amount</h2>
-  <h1 class="text-end" style="color:#fd7e14;">100</h1>
+  <h1 class="text-center" style="color:#fd7e14;">{{totalAmount}}</h1>
 
   <ul class="list-group">
     {{#each records}}
       <li class="list-group-item">
         <div class="d-flex align-items-center justify-content-around">
           <i class="{{this.categoryIcon}} "></i>
-          <div class="col-5 ">
+          <div class="col-5">
             <h4 class="align-middle">
               {{this.name}}
             </h4>
             <p class="m-0">{{this.date}}</p>
           </div>
           <h4>{{this.amount}}</h4>
-          <a class="btn btn-success " href="/records/{{this._id}}/edit">edit</a>
+          <a class="btn btn-success" href="/records/{{this._id}}/edit">edit</a>
           <form
             class="m-0"
             action="./records/{{this._id}}?_method=DELETE"
             method="POST"
             style="display: inline"
           >
-            <button class="btn btn-danger " type="submit">delete</button>
+            <button class="btn btn-danger" type="submit">delete</button>
           </form>
 
         </div>
