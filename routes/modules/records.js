@@ -33,7 +33,7 @@ router.get("/:id/edit", (req, res) => {
       const dateArr = [yyyy, mm, dd];
       const dateValue = dateArr.join("-");
       record.date = dateValue;
-      console.lo(record.date);
+      console.log(record.date);
       Categories.findById(categoryId)
         .lean()
         .then((category) => {
