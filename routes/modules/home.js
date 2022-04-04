@@ -13,7 +13,7 @@ router.get("/", (req, res) => {
         const date = record.date.toLocaleDateString(["ban", "id"]);
         record.date = date;
         totalAmount += record.amount;
-        // get the icon class form category Model
+        // get the icon class from category Model
         const categoryId = record.categoryId;
         Categories.findById(categoryId)
           .lean()
