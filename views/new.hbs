@@ -1,0 +1,75 @@
+<div class="col-6 mx-auto">
+  <div class="justify-content-center row">
+    <p class="col-3 my-0 px-0 text-end align-self-end"><small>*Required field</small></p>
+    <h4 class="col-8 my-0 px-0 text-center">Please create your expand.</h4>
+  </div>
+  <form action="/records/{{this._id}}?_method=PUT" method="POST">
+    <div class="justify-content-center my-3 row">
+
+      <label for="name" class="col-3" style="font-size: 1.5rem;">Name*：</label>
+      <input
+        name="name"
+        id="name"
+        type="text"
+        class="col-6"
+        style="height: 40px;"
+        required
+      />
+    </div>
+    <div class="justify-content-center my-3 row">
+
+      <label for="date" class="col-3" style="font-size: 1.5rem;">Date*：</label>
+      <input
+        name="date"
+        id="date"
+        type="date"
+        class="col-6"
+        style="height: 40px;"
+        required
+      />
+    </div>
+    <div class="justify-content-center my-3 row">
+
+      <label
+        for="category"
+        class="col-3"
+        style="font-size: 1.5rem;"
+      >Category*：</label>
+      <input
+        list="categories"
+        name="category"
+        id="category"
+        class="col-6"
+        placeholder="category"
+      />
+      <datalist id="categories">
+        {{#each category}}
+          <option>{{this.name}}</option>
+        {{/each}}
+      </datalist>
+    </div>
+    <div class="justify-content-center my-3 row">
+
+      <label
+        for="amount"
+        class="col-3"
+        style="font-size: 1.5rem;"
+      >Amount*：</label>
+      <input
+        name="amount"
+        id="amount"
+        type="number"
+        class="col-6"
+        style="height: 40px;"
+        required
+      />
+    </div>
+
+    <div class="justify-content-center my-3 row">
+
+      <div class="col-3"></div>
+      <button type="submit" class="btn btn-primary col-6">Submit</button>
+    </div>
+
+  </form>
+</div>
