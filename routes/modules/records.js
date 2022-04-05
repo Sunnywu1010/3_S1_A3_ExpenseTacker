@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Categories = require("../../models/categories");
+const records = require("../../models/records");
 const Records = require("../../models/records");
 
 router.get("/new", (req, res) => {
@@ -50,6 +51,31 @@ router.get("/:id/edit", (req, res) => {
         .catch((error) => {
           console.log(error);
         });
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+});
+router.put("/:id", (req, res) => {
+  const { name, date, category, amount } = req.body;
+  const id = req.params.id;
+  Records.findById(id)
+    .then((record) => {
+      Categories.findOne({ name:category })
+        .then((category) => {
+          const categoryId = category._id;
+          record.name = name;
+          record.date = date;
+          record.categoryId = categoryId;
+          record.amount = amount;
+          return record.save();
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    })
+    .then(() => {
+      res.redirect("/");
     })
     .catch((error) => {
       console.log(error);
