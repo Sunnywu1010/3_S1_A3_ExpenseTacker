@@ -8,7 +8,15 @@
         id="category-selector"
         onchange="submit()"
       >
-        <option>Category</option>
+        <option>
+          {{#if categoryArr}}
+            {{#each categoryArr}}
+              {{this}}
+            {{/each}}
+          {{else}}
+            Category
+          {{/if}}
+        </option>
         {{#each categories}}
           <option
             class="input-group-list"
