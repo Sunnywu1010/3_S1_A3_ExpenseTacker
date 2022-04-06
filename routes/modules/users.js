@@ -36,8 +36,9 @@ router.post("/register",(req,res)=>{
   Users.findOne({ email })
     .then((user) => {
       if (user) {
-        errors.push({ message: "Email already in the database." });
-        res.render("register", {
+        errors.push({ message: "Email is already exists" });
+        return res.render("register", {
+          errors,
           name,
           email,
           password,
