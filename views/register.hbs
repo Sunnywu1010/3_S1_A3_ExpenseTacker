@@ -2,6 +2,7 @@
   <div class="col-md-6 m-auto">
     <div class="card card-body my-5">
       <h1 class="text-center mt-3">Register</h1>
+      {{> message}}
       <form action="/users/register" method="POST">
         <div class="form-group mt-2">
           <label for="name" class="my-1">Name</label>
@@ -9,6 +10,7 @@
             type="text"
             id="name"
             name="name"
+            value="{{name}}"
             class="form-control"
             placeholder="Enter Name"
           />
@@ -19,6 +21,7 @@
             type="email"
             id="email"
             name="email"
+            value="{{email}}"
             class="form-control"
             placeholder="Enter Email"
           />
@@ -29,6 +32,7 @@
             type="password"
             id="password"
             name="password"
+            value="{{password}}"
             class="form-control"
             placeholder="Enter Password"
           />
@@ -39,6 +43,7 @@
             type="password"
             id="confirmPassword"
             name="confirmPassword"
+            value="{{confirmPassword}}"
             class="form-control"
             placeholder="Confirm Password"
           />

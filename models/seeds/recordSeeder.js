@@ -18,7 +18,6 @@ db.once("open", () => {
         .then((salt) => bcrypt.hash(user.password.toString(), salt))
         .then((hash) =>
           User.create({
-            id: user.id,
             name: user.name,
             email: user.email,
             password: hash,
