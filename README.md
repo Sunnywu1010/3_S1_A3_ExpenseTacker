@@ -50,13 +50,13 @@ ctrl + c
 ```
 
 ## Development Tools
-    1.bcryptjs: 2.4.3
-    2.connect-flash: 0.1.1
-    3.dotenv: 16.0.0
-    4.express: 4.17.3
-    5.express-handlebars: 4.0.2
-    6.express-session: 1.17.2
-    7.method-override: 3.0.0
-    8.mongoose: 6.2.3
-    9.passport: 0.5.2
-    10.passport-local: 1.0.0
+1.  bcryptjs: 2.4.3
+2.  connect-flash: 0.1.1
+3.  dotenv: 16.0.0
+4.  express: 4.17.3
+5.  express-handlebars: 4.0.2
+6.  express-session: 1.17.2
+7.  method-override: 3.0.0
+8.  mongoose: 6.2.3
+9.  passport: 0.5.2
+10. passport-local: 1.0.0
