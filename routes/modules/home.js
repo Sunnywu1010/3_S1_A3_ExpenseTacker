@@ -4,8 +4,9 @@ const router = express.Router();
 const Records = require("../../models/records");
 const Categories = require("../../models/categories");
 router.get("/", (req, res) => {
+  const userId = req.user._id;
   let totalAmount = 0;
-  Records.find()
+  Records.find({ userId })
     .lean()
     .then((records) => {
       records.forEach((record) => {
@@ -41,12 +42,13 @@ router.get("/", (req, res) => {
     });
 });
 router.get("/category", (req, res) => {
+  const userId = req.user._id;
   let totalAmount = 0;
   const categoryName = req.query.category;
   const categoryArr = [categoryName];
   Categories.findOne({ name: categoryName }).then((category) => {
     const categoryId = category._id;
-    Records.find({ categoryId })
+    Records.find({ userId,categoryId })
       .lean()
       .then((records) => {
         records.forEach((record) => {

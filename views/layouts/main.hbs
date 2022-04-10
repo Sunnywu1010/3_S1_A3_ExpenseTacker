@@ -18,7 +18,7 @@
     <header>
       <nav class="navbar-dark bg-dark container-fluid">
         <div class="row align-items-center">
-          <span class="col ms-2 " >
+          <span class="col ms-2">
             <i class="fa-solid fa-ellipsis fa-2x"></i>
           </span>
           <p class="col mb-0 text-center">
@@ -28,7 +28,21 @@
         </div>
       </nav>
       <nav class="navbar navbar-dark bg-primary" style="padding: 8px 16px">
-        <a class="navbar-brand" href="/">Expense Tracker</a>
+        <a class="navbar-brand" href="/">{{#if isAuthenticated}}{{user.name}}'s
+          {{/if}}Expense Tracker</a>
+        {{#if isAuthenticated}}
+          <a
+            href="/users/logout"
+            class="btn bg-light"
+            style="color: #4592af"
+          >Logout</a>
+        {{else}}
+          <a
+            href="/users/login"
+            class="btn bg-light"
+            style="color: #4592af"
+          >Login</a>
+        {{/if}}
       </nav>
 
     </header>

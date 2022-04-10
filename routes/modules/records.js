@@ -3,7 +3,7 @@ const router = express.Router();
 const Categories = require("../../models/categories");
 const records = require("../../models/records");
 const Records = require("../../models/records");
-
+// get new page
 router.get("/new", (req, res) => {
   Categories.find()
     .lean()
@@ -15,9 +15,11 @@ router.get("/new", (req, res) => {
       console.log(error);
     });
 });
+// EDIT expense
 router.get("/:id/edit", (req, res) => {
   const id = req.params.id;
-  Records.findById(id)
+  const userId = req.user._id;
+  Records.findById({ userId, _id: id })
     .lean()
     .then((record) => {
       const categoryId = record.categoryId;
@@ -56,23 +58,37 @@ router.get("/:id/edit", (req, res) => {
       console.log(error);
     });
 });
-router.put("/:id", (req, res) => {
+// CREATE expense
+router.post("/", (req, res) => {
+  const userId = req.user._id;
   const { name, date, category, amount } = req.body;
+  Categories.findOne({ name: category })
+    .then((category) => {
+      const categoryId = category._id;
+      Records.create({
+        name,
+        date,
+        amount,
+        userId,
+        categoryId,
+      });
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+
+    .then(() => {
+      res.redirect("/");
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+});
+router.delete("/:id", (req, res) => {
   const id = req.params.id;
   Records.findById(id)
     .then((record) => {
-      Categories.findOne({ name: category })
-        .then((category) => {
-          const categoryId = category._id;
-          record.name = name;
-          record.date = date;
-          record.categoryId = categoryId;
-          record.amount = amount;
-          return record.save();
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+      record.remove();
     })
     .then(() => {
       res.redirect("/");
@@ -81,23 +97,10 @@ router.put("/:id", (req, res) => {
       console.log(error);
     });
 });
-router.delete("/:id",(req,res)=>{
-  const id=req.params.id
-  Records.findById(id)
-    .then((record) => {
-      record.remove();
-    })
-    .then(()=>{
-      res.redirect("/");
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-})
 // router.post("/", (req, res) => {
 //   const { name, date, category, amount } = req.body;
 //   Records.create({
-//     name, date, category, amount 
+//     name, date, category, amount
 //   }).then(()=>{
 //     res.redirect("/")
 //   })
