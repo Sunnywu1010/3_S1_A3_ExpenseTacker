@@ -20,6 +20,8 @@ Clone this repository to create a local copy in your computer
 
 Open the repository in your computer, and enter this folder by your local terminal.
 
+Please look into .env.example, and create your .env file.
+
 Please install the Development Tools mentioned below
 
 ```
