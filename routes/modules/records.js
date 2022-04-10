@@ -15,7 +15,7 @@ router.get("/new", (req, res) => {
       console.log(error);
     });
 });
-// EDIT expense
+// get EDIT page
 router.get("/:id/edit", (req, res) => {
   const id = req.params.id;
   const userId = req.user._id;
@@ -58,6 +58,32 @@ router.get("/:id/edit", (req, res) => {
       console.log(error);
     });
 });
+// EDIT expense
+router.put("/:id", (req, res) => {
+  const { name, date, category, amount } = req.body;
+  const id = req.params.id;
+  Records.findById(id)
+    .then((record) => {
+      Categories.findOne({ name:category })
+        .then((category) => {
+          const categoryId = category._id;
+          record.name = name;
+          record.date = date;
+          record.categoryId = categoryId;
+          record.amount = amount;
+          return record.save();
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    })
+    .then(() => {
+      res.redirect("/");
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+});
 // CREATE expense
 router.post("/", (req, res) => {
   const userId = req.user._id;
@@ -84,6 +110,7 @@ router.post("/", (req, res) => {
       console.log(error);
     });
 });
+// DELETE expense
 router.delete("/:id", (req, res) => {
   const id = req.params.id;
   Records.findById(id)
@@ -97,15 +124,5 @@ router.delete("/:id", (req, res) => {
       console.log(error);
     });
 });
-// router.post("/", (req, res) => {
-//   const { name, date, category, amount } = req.body;
-//   Records.create({
-//     name, date, category, amount
-//   }).then(()=>{
-//     res.redirect("/")
-//   })
-//    .catch((error) => {
-//       console.log(error);
-//     });
-// });
+
 module.exports = router;

@@ -12,7 +12,7 @@ This is where you can record your expense history, please feel free to use it.
 
 ## Environment SetUp
 
-Node.js + Express
+Node.js + Express + Express-session
 
 ## Installing
 

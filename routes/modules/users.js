@@ -3,9 +3,11 @@ const router=express.Router()
 const Users=require("../../models/users")
 const bcrypt = require("bcryptjs");
 const passport = require("passport");
+// get LOGIN page
 router.get("/login",(req,res)=>{
   res.render("login")
 })
+// LOGIN
 router.post(
   "/login",
   passport.authenticate("local", {
@@ -13,9 +15,11 @@ router.post(
     failureRedirect: "/users/login",
   })
 );
+// get REGISTER page
 router.get("/register",(req,res)=>{
   res.render("register");
 })
+// REGISTER account
 router.post("/register",(req,res)=>{
   const { name, email, password, confirmPassword } = req.body;
   // error flash message
@@ -68,6 +72,7 @@ router.post("/register",(req,res)=>{
     })
     .catch((error) => console.log(error));
 })
+// LOGOUT
 router.get("/logout",(req,res)=>{
   req.logout()
   req.flash("success_msg", "You already logout!");

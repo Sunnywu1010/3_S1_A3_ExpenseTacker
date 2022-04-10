@@ -3,6 +3,7 @@ const router = express.Router();
 
 const Records = require("../../models/records");
 const Categories = require("../../models/categories");
+// get HOME page
 router.get("/", (req, res) => {
   const userId = req.user._id;
   let totalAmount = 0;
@@ -41,6 +42,7 @@ router.get("/", (req, res) => {
       console.log(error);
     });
 });
+// get CATEGORY SEARCH page
 router.get("/category", (req, res) => {
   const userId = req.user._id;
   let totalAmount = 0;
